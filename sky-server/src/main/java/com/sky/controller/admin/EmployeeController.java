@@ -94,4 +94,11 @@ public class EmployeeController {
 
     }
 
+    @PostMapping("/status/{status}")
+    public Result updateStatus(@PathVariable Integer status, Long id) {
+        log.info("禁用或启动：{}", status);
+        employeeService.updateStatus(status, id);
+        return Result.success();
+    }
+
 }
