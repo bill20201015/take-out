@@ -15,9 +15,13 @@
     <update id="updateStatus" parameterType="com.sky.entity.Employee">
         update employee
         <set>
-            <if test="status != null">
-                status = #{status}
-            </if>
+            <if test="status != null"> status = #{status}, </if>
+            <if test="id != null"> id = #{id} ,</if>
+            <if test="idNumber != null"> id_number = #{idNumber}, </if>
+            <if test="name != null"> name = #{name}, </if>
+            <if test="phone != null"> phone = #{phone} ,</if>
+            <if test="sex != null"> sex = #{sex}, </if>
+            <if test="username != null"> username = #{username}, </if>
         </set>
         where id = #{id};
     </update>

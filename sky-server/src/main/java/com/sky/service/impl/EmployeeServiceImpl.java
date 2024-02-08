@@ -20,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import java.beans.Beans;
+import java.beans.beancontext.BeanContextServices;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -110,6 +112,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void updateStatus(Integer status, Long id) {
         Employee employee = Employee.builder().status(status).id(id)
         .build();
+        employeeMapper.updateStatus(employee);
+    }
+
+    @Override
+    public void editEmployeeInfomation(EmployeeDTO employeeDTO) {
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeDTO, employee);
         employeeMapper.updateStatus(employee);
     }
 

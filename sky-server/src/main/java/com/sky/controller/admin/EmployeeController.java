@@ -85,6 +85,14 @@ public class EmployeeController {
         return Result.success();
     }
 
+    @PutMapping()
+    @ApiOperation("编辑员工")
+    public Result editEmployeeInfomation(@RequestBody EmployeeDTO employeeDTO) {
+        employeeService.editEmployeeInfomation(employeeDTO);
+        log.info("编辑员工");
+        return Result.success();
+    }
+
     @GetMapping("/page")
     @ApiOperation("分页查询")
     public Result<PageResult> pageQuery(EmployeePageQueryDTO employeePageQueryDTO){
